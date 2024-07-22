@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     checker: {
       lintOnStart: true
     },
-    config: {}
+    config: {
+      
+    }
   },
   routeRules: {
     '/': { prerender: true }
