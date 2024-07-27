@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   ssr: false,
   eslint: {
     checker: {
-      lintOnStart: true
+      lintOnStart: false
     },
     config: {
       

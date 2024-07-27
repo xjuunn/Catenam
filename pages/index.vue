@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center w-screen h-screen flex-col">
+    <div class="flex justify-center items-center w-full h-full flex-col">
         <div class="countdown p-5 m-5 rounded-box text-5xl bg-neutral">
             <span :style="`--value:${value}`"></span>
         </div>

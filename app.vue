@@ -1,5 +1,12 @@
 <template>
   <div>
-    <NuxtPage/>
+    <Window>
+      <NuxtPage/>
+    </Window>
   </div>
 </template>
+<style>
+html,body {
+  background-color: transparent !important;
+}
+</style>

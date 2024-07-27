@@ -12,7 +12,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": true
     },
     "bundle": {
       "active": true,
@@ -53,13 +53,17 @@
     "updater": {
       "active": false
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 400,
         "resizable": true,
         "title": "Catenam",
-        "width": 800
+        "width": 500,
+        "transparent": true,
+        "titleBarStyle": "Transparent",
+        "decorations": false
       }
     ]
   }
