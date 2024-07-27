@@ -1,7 +1,8 @@
 <template>
-    <div class="h-8 rounded-btn" data-tauri-drag-region>
-        
+    <div class="h-8 m-1 rounded-btn" data-tauri-drag-region>
+          
     </div>
+    
 </template>
 
 <script setup lang="ts">
