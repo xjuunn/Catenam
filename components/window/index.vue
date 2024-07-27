@@ -1,7 +1,7 @@
 <template>
-    <div class="w-screen h-screen transition-none bg-base-100 border border-neutral rounded-btn">
+    <div class="w-screen h-screen transition-none bg-base-100 border border-neutral rounded-btn overflow-hidden flex flex-col">
         <WindowTitleBar></WindowTitleBar>
-        <div class=" flex justify-center px-4 py-16">
+        <div class="overflow-y-auto flex-1">
             <slot></slot>
         </div>
     </div>
@@ -9,6 +9,6 @@
 
 <script setup>
 
-</script>
+</script> 
 
 <style lang="scss" scoped></style>
