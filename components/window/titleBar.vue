@@ -5,10 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { appWindow } from '@tauri-apps/api/window';
-onMounted(()=>{
-    appWindow.startDragging()
-})
 
 </script>
 
