@@ -12,7 +12,45 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": true,
+      "shell": {
+        "all": true,
+        "execute": true,
+        "open": true,
+        "scope": [
+          {
+            "name": "run-git",
+            "cmd": "git",
+            "args": true
+          },
+          {
+            "name": "run-adb",
+            "cmd": "adb",
+            "args": true
+          },
+          {
+            "name": "run-ping",
+            "cmd": "ping",
+            "args": true
+          },
+          {
+            "name": "run-winget",
+            "cmd": "winget",
+            "args": true
+          },
+          {
+            "name": "run-java",
+            "cmd": "java",
+            "args": true
+          },
+          {
+            "name": "run-powershell",
+            "cmd": "powershell",
+            "args": true
+          }
+        ],
+        "sidecar": true
+      }
     },
     "bundle": {
       "active": true,

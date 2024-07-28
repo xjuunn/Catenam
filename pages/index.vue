@@ -4,14 +4,12 @@
             <span :style="`--value:${value}`"></span>
         </div>
         <button class="btn btn-primary" @click="value++">Catenam++</button>
-        <br>
-        <div v-for="item in 20" :key="item">{{ item }}</div>
-        <br>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 let value = ref(0);
+
 </script>
 
 <style lang="scss" scoped></style>
