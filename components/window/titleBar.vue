@@ -5,8 +5,8 @@
             <!-- 中间区域 -->
         </div>
         <div class="text-base-content items-end">
-            <Icon name="fluent:minimize-16-regular" size="1.1em" @click="appMinimize"></Icon>
-            <Icon class="me-1 ms-2" name="material-symbols-light:close" size="1.1em" @click="appClose"></Icon>
+            <Icon class="opacity-60 hover:opacity-100" name="fluent:minimize-16-regular" size="1.1em" @click="appMinimize"></Icon>
+            <Icon class="opacity-60 hover:opacity-100 me-1 ms-2" name="material-symbols-light:close" size="1.1em" @click="appClose"></Icon>
         </div>
     </div>
 </template>
