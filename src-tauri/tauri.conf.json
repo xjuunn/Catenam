@@ -50,6 +50,19 @@
           }
         ],
         "sidecar": true
+      },
+      "fs": {
+        "all": true,
+        "copyFile": true,
+        "createDir": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "scope": ["$HOME/Desktop/test/*"],
+        "writeFile": true
       }
     },
     "bundle": {
@@ -67,7 +80,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.junhsiun.dev",
+      "identifier": "Junhsiun",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

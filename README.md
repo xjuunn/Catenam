@@ -20,3 +20,4 @@
 * nuxt-content
 * jsencrypt
 * lodash
+
