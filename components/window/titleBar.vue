@@ -1,12 +1,12 @@
 <template>
     <div class="h-5 m-1 rounded-md flex z-50" data-tauri-drag-region>
-        <span class="pt-1 ps-2 text-xs" data-tauri-drag-region>{{ title }}</span>
+        <span class="pt-1 ps-2 text-xs opacity-75" data-tauri-drag-region>{{ title }}</span>
         <div class="flex-1" data-tauri-drag-region>
             <!-- 中间区域 -->
         </div>
         <div class="text-base-content items-end">
             <Icon name="fluent:minimize-16-regular" size="1.1em" @click="appMinimize"></Icon>
-            <Icon class="ms-2" name="material-symbols-light:close" size="1.1em" @click="appClose"></Icon>
+            <Icon class="me-1 ms-2" name="material-symbols-light:close" size="1.1em" @click="appClose"></Icon>
         </div>
     </div>
 </template>
