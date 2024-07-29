@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <Window>
-      <NuxtPage />
-    </Window>
-  </div>
+  <NuxtLayout>
+    <NuxtPage></NuxtPage>
+  </NuxtLayout>
 </template>
 <style>
 html,
@@ -19,9 +17,10 @@ body {
 
   scrollbar-width: thin;
   scrollbar-color: rgba(100, 100, 100, 0) rgba(0, 128, 0, 0);
-  
+
 }
-*:hover{
+
+*:hover {
   scrollbar-color: rgba(105, 105, 105, 0.315) rgba(255, 255, 255, 0);
 }
 </style>
