@@ -8,8 +8,9 @@ export default createConfigForNuxt({
   .override("nuxt/rules", {
     rules: {
       "vue/html-self-closing": "off",
-      "prefer-const":'off'
-    },
+      "prefer-const":'off',
+      "@typescript-eslint/no-explicit-any": ["off"]
+    }
   })
   
   ;

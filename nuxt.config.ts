@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxt/content",
     "nuxt-lodash",
-    "@nuxt/image"
+    "@nuxt/image",
+    "@nuxtjs/color-mode"
   ]
 })

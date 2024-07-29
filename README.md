@@ -20,4 +20,5 @@
 * nuxt-content
 * jsencrypt
 * lodash
+* nuxt-color-mode
 
