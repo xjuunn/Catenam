@@ -13,6 +13,7 @@
 let value = ref(0);
 let colorMode = useColorMode();
 function setColor(){
-    colorMode.value = 'nord';
+    colorMode.preference = 'system'
+
 }
 </script>
