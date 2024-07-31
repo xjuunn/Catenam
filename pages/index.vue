@@ -1,13 +1,13 @@
 <template>
     <div class="flex justify-center items-center w-full flex-col ">
         <button class="btn btn-primary" @click="toggle">切换显示窗口</button>
-        <button class="btn btn-primary" @click="test">{{ sync }}</button>
+        <button class="btn btn-primary" @click="test">{{ syncBarsize }}</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { LogicalPosition, WindowManager } from '@tauri-apps/api/window';
-let { sync, setSync } = useAppStore();
+import { LogicalPosition, LogicalSize, WindowManager } from '@tauri-apps/api/window';
+let {syncBarsize,setBarsize} = useBarStore();
 async function toggle() {
     let barWindow = new WindowManager('bar');
     let visible = await barWindow.isVisible()
@@ -18,7 +18,8 @@ async function toggle() {
 }
 
 function test() {
-    setSync(sync.value + 1)
+   setBarsize(new LogicalSize(syncBarsize.value.width+1,syncBarsize.value.height))
+   
 }
 
 </script>

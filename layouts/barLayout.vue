@@ -2,13 +2,15 @@
     <div class="bg-white w-full">
         <AppBarBg></AppBarBg>
         <slot></slot>
-        <button class="btn btn-primary" @click="test">{{ sync }}</button>
+        <button class="btn btn-primary" @click="test">{{ syncBarsize }}</button>
     </div>
 </template>
 
 <script setup lang="ts">
-let { sync, setSync } = useAppStore();
+import { LogicalSize } from '@tauri-apps/api/window';
+
+let { syncBarsize,setBarsize } = useBarStore();
 function test() {
-    setSync(sync.value + 2);
+    setBarsize(new LogicalSize(syncBarsize.value.width,syncBarsize.value.height+1))
 }
 </script>

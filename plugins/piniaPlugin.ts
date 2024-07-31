@@ -9,6 +9,13 @@ export default defineNuxtPlugin((nuxtApp: any) => {
 
 export function listenPiniaPlugin(context: any) {
   watch(context.store, () => {
+    console.log(context.listenUpdate);
+    
+    if(context.listenUpdate){
+      context.listenUpdate = false;
+      return;
+    }
+    console.log("发送同步数据");
     emit('storeSync', {
       data: {
         store: context.store,
@@ -21,7 +28,8 @@ export function listenPiniaPlugin(context: any) {
     if (event.payload.data.label == appWindow.label) return;
     for (const key in event.payload.data.store) {
       if (!Object.prototype.hasOwnProperty.call(event.payload.data.store, key)) continue;
-      if (key.substring(0, 5) != 'sync') continue;
+      if (key.substring(0, 4) != 'sync') continue;
+      context.listenUpdate = true;
       context.store[key].value = event.payload.data.store[key]._value;
 
     }

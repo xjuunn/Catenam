@@ -1,16 +1,15 @@
-import { LogicalSize, WindowManager } from '@tauri-apps/api/window';
 import { defineStore } from 'pinia';
-export const useBarStore = defineStore('bar', async () => {
-    let barWindow = await new WindowManager('bar');
-    console.log('create',barWindow);
-    
-    function setBarSize(width:number,height:number){
-        barWindow.setSize(new LogicalSize(width,height))
+import { LogicalSize } from '@tauri-apps/api/window';
+export const useBarStore = defineStore('bar',() => {
+    let _barSize = ref(new LogicalSize(350, 100))
+    let syncBarsize = computed(() => {
+        return _barSize;
+    })
+    function setBarsize(size: LogicalSize) {
+        _barSize.value = size;
     }
-
-
     return {
-        barWindow,
-        setBarSize,
+        syncBarsize, setBarsize,
+
     }
 })
