@@ -1,36 +1,24 @@
 <template>
     <div class="flex justify-center items-center w-full flex-col ">
-        <div class="countdown p-5 m-5 rounded-box text-5xl bg-base-300">
-            <span :style="`--value:${value}`"></span>
-        </div>
-        <button class="btn btn-primary" @click="value++">Catenam++</button>
-        <br>
-        <button class="btn btn-primary" @click="test">创建窗口</button>
-        <button class="btn btn-primary" @click="toggle">toggle</button>
+        <button class="btn btn-primary" @click="toggle">切换显示窗口</button>
+        <button class="btn btn-primary" @click="test">{{ sync }}</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { WebviewWindow } from '@tauri-apps/api/window'
-let value = ref(0);
-let testWindow :WebviewWindow;
-function test() {
-    testWindow = new WebviewWindow('test', {
-        alwaysOnTop: true,
-        center: true,
-        focus: true,
-        height: 200,
-        width: 500,
-        decorations: false,
-        transparent: true,
-        url:'/test'
-    });
+import { LogicalPosition, WindowManager } from '@tauri-apps/api/window';
+let { sync, setSync } = useAppStore();
+async function toggle() {
+    let barWindow = new WindowManager('bar');
+    let visible = await barWindow.isVisible()
+    if (!visible) barWindow.show();
+    else barWindow.hide();
+    let width = (await barWindow.outerSize()).width;
+    barWindow.setPosition(new LogicalPosition(window.screen.width / 2 - width / 2, 0))
 }
-let flag = true;
-function toggle(){
-    if(flag) testWindow.hide();
-    else testWindow.show()
-    flag = !flag;
+
+function test() {
+    setSync(sync.value + 1)
 }
 
 </script>

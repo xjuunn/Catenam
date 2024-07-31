@@ -115,6 +115,26 @@
         "transparent": true,
         "titleBarStyle": "Transparent",
         "decorations": false
+      },
+      {
+        "label": "bar",
+        "height": 100,
+        "width": 350,
+        "transparent": true,
+        "titleBarStyle": "Transparent",
+        "decorations": false,
+        "title": "Catenam",
+        "resizable": true,
+        "closable": false,
+        "fullscreen": false,
+        "minimizable": false,
+        "maximizable": false,
+        "alwaysOnTop": true,
+        "focus": true,
+        "hiddenTitle": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "url": "/barPage"
       }
     ]
   }

@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   ssr: false,
   eslint: {
     checker: {
@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
     "@hypernym/nuxt-anime",
@@ -25,6 +24,6 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "nuxt-lodash",
     "@nuxt/image",
-    "@nuxtjs/color-mode"
+    "@nuxtjs/color-mode",
   ]
 })

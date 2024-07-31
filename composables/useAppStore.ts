@@ -1,14 +1,12 @@
-export const useAppStore = defineStore('app',()=>{
-    let count = ref(0);
-    const getCount = computed(()=>{
-        return count;
-    });
-    function countAdd(i = 1){
-        count.value += i;
+import { defineStore } from "pinia";
+export const useAppStore = defineStore('app', () => {
+    let _sync = ref(0)
+    let sync = computed(()=> _sync);
+    function setSync(sync1:number){
+        _sync.value = sync1;
     }
     return {
-        count,
-        getCount,
-        countAdd
+        sync,setSync
     }
 })
+
