@@ -1,68 +1,42 @@
-import { createPinia } from 'pinia';
-import { emit, listen, once } from '@tauri-apps/api/event';
+import { createPinia, type PiniaPluginContext } from 'pinia';
+import { emit, listen, type Event } from '@tauri-apps/api/event';
 import { appWindow } from '@tauri-apps/api/window';
 export default defineNuxtPlugin((nuxtApp: any) => {
   const pinia = createPinia();
   nuxtApp.vueApp.use(pinia)
-  pinia.use(listenPiniaPlugin);
+  pinia.use(syncDataWithMainWindow);
 })
 
-export async function listenPiniaPlugin(context: any) {
-  await initSync(context);
-  updateSync(context);
-
-}
-function initSync(context: any) {
-  return new Promise((res, rej) => {
-    let timeout = setTimeout(() => {
-      rej(false);
-      throw new Error("页面初始化获取全局Store超时");
-    }, 3000);
-    once('initStoreSync', (event: any) => {
-      sync(event, context);
-      clearTimeout(timeout);
-      res(true);
-    })
-    listen('initStore', (event: any) => {
-      if (event.payload.label === appWindow.label) return;
-      emit('initStoreSync', {
-        data: {
-          store: context.store,
-          label: appWindow.label
-        }
+let init: boolean = false;
+let syncObj: any = {};
+/** 窗口间数据同步 所有数据和主窗口同步 */
+export async function syncDataWithMainWindow(context: PiniaPluginContext) {
+  if (!init) {
+    if (appWindow.label !== 'main') {
+      emit('getStore', syncObj);
+    } else {
+      listen('getStore', () => {
+        emit('syncStore', syncObj);
       })
-    })
-    emit('initStore', { label: appWindow.label });
-  })
-}
-function updateSync(context: any) {
-  watch(context.store, () => {
-    if (context.listenUpdate) {
-      context.listenUpdate = false;
-      return;
     }
-    emit('storeSync', {
-      data: {
-        store: context.store,
-        label: appWindow.label
-      }
+  }
+  context.store.$onAction((context2) => {
+    if (context2.name === 'sync') return;
+    context2.after(() => {
+      emit('syncStore', syncObj)
     })
   })
-
-  listen('storeSync', async (event: any) => {
-    sync(event, context);
+  if (init) return;
+  init = !init;
+  watch(context.store.syncKeyList.value, () => {
+    syncObj = context.store.syncList.value;
+  }, { flush: 'post' })
+  listen('syncStore', (event: Event<any>) => {
+    if (event.windowLabel === appWindow.label) return;
+    for (const key in event.payload) {
+      if (!Object.prototype.hasOwnProperty.call(event.payload, key)) return;
+      const item = event.payload[key];
+      context.store.syncList.value[key].value = item._value;
+    }
   })
 }
-
-function sync(event: any, context: any) {
-  if (event.payload.data.label == appWindow.label) return;
-  for (const key in event.payload.data.store) {
-    if (!Object.prototype.hasOwnProperty.call(event.payload.data.store, key)) continue;
-    if (key.substring(0, 4) != 'sync') continue;
-    context.listenUpdate = true;
-    context.store[key].value = event.payload.data.store[key]._value;
-  }
-}
-/**
- * Pinia store 中，所有以sync开头的计算属性会在所有窗口同步数据
- */

@@ -1,12 +1,16 @@
 import { defineStore } from "pinia";
 export const useAppStore = defineStore('app', () => {
-    let _sync = ref(0)
-    let sync = computed(()=> _sync);
-    function setSync(sync1:number){
-        _sync.value = sync1;
+    const { sync } = useSyncStore();
+    let _count = ref(0);
+    let count = computed(() => _count);
+    function addCount() {
+        _count.value++;
     }
+    sync('count', count);
+
+
     return {
-        sync,setSync
+        count, addCount
     }
 })
 
