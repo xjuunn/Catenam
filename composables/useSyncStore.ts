@@ -9,6 +9,8 @@ export const useSyncStore = defineStore('sync', () => {
         _syncList.value[key] = data;
         _syncKeyList.value.push(key);
     }
+
+    
     
     return {
         syncList, sync,syncKeyList

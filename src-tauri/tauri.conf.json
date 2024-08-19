@@ -107,37 +107,16 @@
     "macOSPrivateApi": true,
     "windows": [
       {
-        "height": 400,
-        "width": 500,
+        "height": 200,
+        "width": 400,
         "title": "Catenam",
         "label": "main",
         "resizable": true,
         "transparent": true,
         "titleBarStyle": "Transparent",
         "decorations": false,
+        "alwaysOnTop": true,
         "url": "/"
-      },
-      {
-        "width": 500,
-        "height": 400,
-        "title": "Catenam2",
-        "label": "index2",
-        "resizable": true,
-        "transparent": true,
-        "titleBarStyle": "Transparent",
-        "decorations": false,
-        "url": "/index2"
-      },
-      {
-        "width": 500,
-        "height": 400,
-        "title": "Catenam3",
-        "label": "index3",
-        "resizable": true,
-        "transparent": true,
-        "titleBarStyle": "Transparent",
-        "decorations": false,
-        "url": "/index2"
       }
     ]
   }

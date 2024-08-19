@@ -1,9 +1,11 @@
 <template>
   <NuxtLayout>
-    
     <NuxtPage></NuxtPage>
   </NuxtLayout>
 </template>
+<script lang="ts" setup>
+useAppStore();
+</script>
 <style>
 html,
 body {

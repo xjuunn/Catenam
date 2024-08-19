@@ -29,6 +29,7 @@ export async function syncDataWithMainWindow(context: PiniaPluginContext) {
   if (init) return;
   init = !init;
   watch(context.store.syncKeyList.value, () => {
+    if(!context.store.syncKeyList) return;
     syncObj = context.store.syncList.value;
   }, { flush: 'post' })
   listen('syncStore', (event: Event<any>) => {
