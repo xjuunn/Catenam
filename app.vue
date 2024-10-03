@@ -26,4 +26,14 @@ body {
 *:hover {
   scrollbar-color: rgba(105, 105, 105, 0.315) rgba(255, 255, 255, 0);
 }
+
+@font-face {
+  font-family: deyi;
+  src: url('/fonts/SmileySans-Oblique.ttf.woff2');
+  font-display: swap;
+}
+.font-deyi {
+  font-family: deyi,'Courier New', Courier, monospace;
+}
+
 </style>

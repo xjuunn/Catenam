@@ -7,7 +7,7 @@
     "distDir": "../.output/public"
   },
   "package": {
-    "productName": "Catenam",
+    "productName": "ConfidentialDocuments",
     "version": "0.1.0"
   },
   "tauri": {
@@ -74,10 +74,6 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
         "icons/icon.ico"
       ],
       "identifier": "Junhsiun",
@@ -107,12 +103,13 @@
     "macOSPrivateApi": true,
     "windows": [
       {
-        "height": 200,
+        "height": 300,
         "width": 400,
-        "title": "Catenam",
+        "title": "机密文档",
         "label": "main",
-        "resizable": true,
+        "resizable": false,
         "transparent": true,
+        "center": true,
         "titleBarStyle": "Transparent",
         "decorations": false,
         "alwaysOnTop": true,
